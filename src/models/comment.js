@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   var Comment = sequelize.define('Comment', {
     text: {
@@ -15,10 +16,14 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, { tableName: 'comments', underscored: true });
 
-  Comment.associate = function(models) {
-    Comment.belongsTo(models.Book, { foreignKey: 'book_id', allowNull: false })
+  Comment.associate = (models) => {
+    Comment.belongsTo(models.Book, {
+      foreignKey: 'book_id', 
+      allowNull: false 
+    })
   };
+
   return Comment;
 };
 
-comment1.getBook().then(book => console.log(book))
+// comment1.getBook().then(book => console.log(book))

@@ -1,12 +1,16 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   var Book = sequelize.define('Book', {
     title: DataTypes.STRING
   }, { tableName: 'books', underscored: true});
 
-  Book.associate = function(models) {
-    Book.hasMany(models.Comment, { foreignKey: 'book_id' })
-  };
+  Book.associate = (models) => {
+    Book.hasMany(models.Comment, {
+      foreignKey: 'book_id', 
+      as: 'comments' })
+    };
+
   return Book;
 };
 
