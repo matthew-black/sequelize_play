@@ -1,0 +1,12 @@
+<h2>Some books:</h2>
+
+<ul>
+  {{#each books}}
+    <li>{{title}}</li>
+      <ul>
+        {{#each Comments}}
+          <li>{{text}} --{{author}}</li>
+        {{/each}}
+      </ul>
+  {{/each}}
+</ul>
