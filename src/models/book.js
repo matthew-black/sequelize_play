@@ -2,7 +2,12 @@
 
 module.exports = (sequelize, DataTypes) => {
   var Book = sequelize.define('Book', {
-    title: DataTypes.STRING
+    title: {
+      type: DataTypes.TEXT,
+      validate: {
+        notEmpty: true
+      }
+    }
   }, { tableName: 'books', underscored: true});
 
   Book.associate = (models) => {
@@ -13,7 +18,5 @@ module.exports = (sequelize, DataTypes) => {
 
   return Book;
 };
-
-// Comment.belongsTo(models.Book, { foreignKey: 'book_id', allowNull: false })
 
 // book1.getComments().then(comments => console.log(comments))

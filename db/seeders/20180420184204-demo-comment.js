@@ -2,17 +2,35 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('books', [
+    return queryInterface.bulkInsert('comments', [
       {
-        title: 'War and Pease',
+        text: 'This book blows chunks, brah.',
+        author: "Matt",
+        book_id: 1,
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
-        title: 'The Grate Gatsby',
+        text: 'This book is the best ever, brah.',
+        author: "Rory",
+        book_id: 1,
         created_at: new Date(),
         updated_at: new Date(),
-      }
+      },
+      {
+        text: 'I cry about Myrtle every day.',
+        author: "Matt",
+        book_id: 2,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        text: 'I love how F. Scott essentially implicates himself in propping up "The American Dream."',
+        author: "Rory",
+        book_id: 2,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
     ], {});
     /*
       Add altering commands here.
@@ -27,7 +45,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('books', null, {});
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
