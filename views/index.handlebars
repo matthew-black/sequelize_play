@@ -2,11 +2,8 @@
 
 <ul>
   {{#each books}}
-    <li>{{title}}</li>
-      <ul>
-        {{#each Comments}}
-          <li>{{text}} --{{author}}</li>
-        {{/each}}
-      </ul>
+    <li><a href="/books/{{id}}">{{title}}</a></li>
+
   {{/each}}
 </ul>
+
